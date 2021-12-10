@@ -17,6 +17,7 @@ public class MainController {
         return ResponseEntity.ok(new MessageDto("hola ADMIN desde cognito"));
     }
 
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     @GetMapping("/hello-user")
     public ResponseEntity<MessageDto> helloUser() {
         return ResponseEntity.ok(new MessageDto("hola USER desde cognito"));
